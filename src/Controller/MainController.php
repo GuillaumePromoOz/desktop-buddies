@@ -17,8 +17,7 @@ class MainController extends AbstractController
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 
-        //$newProducts = $categoryRepository->findToysByCategoryId(1);
-        //dd($newToys);
+        $newProducts = $categoryRepository->findToysByCategoryId(1);
 
         return $this->render('main/index.html.twig', [
             'categories' => $categories,
