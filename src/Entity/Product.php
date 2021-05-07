@@ -35,7 +35,7 @@ class Product
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="smallint", nullable=true,  options={"comment":"Product status(1=available, 2=unavailable, 3=new)"}))
      */
     private $status;
 
