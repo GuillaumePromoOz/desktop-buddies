@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Desktop Buddies{% endblock %}
+
+{% block body %}
+
+{% include '_nav.html.twig' %}
+
+    <main class="container main-content">
+        <div class="card mb-3 toy-details" style="max-width: 2000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{ asset('images/' ~ product.image) }}" alt="product-image" width=100%>
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+
+  </main>
+
+{% endblock %}

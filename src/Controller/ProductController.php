@@ -2,25 +2,26 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MainController extends AbstractController
+class ProductController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * Get one product
+     * 
+     * @Route("/products/{id<\d+>}", name="products_read", methods="GET")
      */
-    public function home(CategoryRepository $categoryRepository): Response
+    public function read(Product $product, CategoryRepository $categoryRepository): Response
     {
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 
-        //$newProducts = $categoryRepository->findToysByCategoryId(1);
-        //dd($newToys);
-
-        return $this->render('main/index.html.twig', [
+        return $this->render('product/read.html.twig', [
+            'product' => $product,
             'categories' => $categories,
         ]);
     }

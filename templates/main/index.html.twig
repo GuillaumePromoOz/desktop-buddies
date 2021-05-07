@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Desktop Buddies{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% include '_nav.html.twig' %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/desktop-buddies/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/desktop-buddies/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+ <!-- Header -->
+  <header>
+    <div class="jumbotron d-none d-lg-block home-header"></div>
+    <div class="jumbotron d-block d-lg-none mobile-home-header"></div>
+  </header>
+
+<!-- Sales banner -->
+  <div class="card">
+  <div class="card-body banner">
+    <h4 class="card-title">Check out our latest arrivals!</h4>
+    <h6 class="card-subtitle mb-2 text-primary">ORDER NOW and get 50% off any product</h6>
+  </div>
 </div>
 {% endblock %}

@@ -1,0 +1,71 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.home-header {
+  background-image: url('images/desktopbanner.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 35rem;
+  padding-top: 25rem;
+}
+
+.mobile-home-header {
+  background-color: transparent;
+  background-image: url('images/mobiledesktopheader2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 35rem;
+  padding-top: 25rem;
+}
+
+.category-header {
+  margin-top: 8rem;
+  display: inline-block;
+  font-weight: 1000;
+  color: #212529;
+  text-align: center;
+}
+
+.toy-card {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+/*.toy-card__title {
+  text-align: center;
+}*/
+
+.toy-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.toy-details {
+  margin-top: 8rem;
+}
+
+.card-button {
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+
+.banner {
+  text-align: center;
+}
