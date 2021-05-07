@@ -18,6 +18,7 @@ class MainController extends AbstractController
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 
+        // Finds a product by its status for home page (3=new)
         $newProducts = $productRepository->findProductByStatus(3);
 
         return $this->render('main/index.html.twig', [

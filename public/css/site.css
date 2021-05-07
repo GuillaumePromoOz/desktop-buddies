@@ -42,14 +42,14 @@ footer {
   text-align: center;
 }
 
-.toy-card {
+.product-card {
   margin-top: 3rem;
   margin-bottom: 4rem;
 }
 
-/*.toy-card__title {
-  text-align: center;
-}*/
+.product-card__title {
+  color: black;
+}
 
 .product-image {
   width: 100%;
@@ -57,7 +57,7 @@ footer {
   object-fit: cover;
 }
 
-.toy-details {
+.product-details {
   margin-top: 8rem;
 }
 
