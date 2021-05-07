@@ -19,4 +19,26 @@
     <h6 class="card-subtitle mb-2 text-primary">ORDER NOW and get 50% off any product</h6>
   </div>
 </div>
+
+ <main class="container">
+    <div class="row">
+     <!-- Lastest Arrivals Product Card -->
+     {% for newProduct in newProducts %} 
+      <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="card-group toy-card">
+          <div class="card">
+            <a href="{{ path('products_read', {id: newProduct.id}) }}">
+            <img class ="product-image" src="{{ asset('images/' ~ newProduct.image) }}"/>
+            <div class="card-body">
+            <h5><span class="badge badge-primary">NEW</span></h5>
+              <h5 class="card-title text-secondary">{{ newProduct.name }}</h5>
+            <a/>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
 {% endblock %}
