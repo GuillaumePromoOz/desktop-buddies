@@ -16,10 +16,10 @@
      <!-- Product Card -->
      {% for product in category.products %} 
       <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-        <div class="card-group product-card">
+        <div class="card-group home-product-card">
           <div class="card">
             <a href="{{ path('products_read', {id: product.id}) }}">
-              <img class ="product-image" src="{{ asset('images/' ~ product.image) }}" alt="product-image"/>
+              <img class ="home-product-image" src="{{ asset('images/' ~ product.image) }}" alt="product-image"/>
               <div class="card-body">
                 <button type="button" class="btn btn-outline-warning btn-small mb-3">Details</button>
             <a/>
