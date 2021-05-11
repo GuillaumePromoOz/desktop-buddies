@@ -16,15 +16,14 @@
                 <div class="card-body">
                     <h5 class="card-title product-title">{{product.name}}</h5>
                     <p class="card-text product-text">{{product.description}}</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p class="card-text"><small class="text-muted">PRICE</small></p>
                     <a href="#"><button type="button" class="btn btn-info btn-lg btn-block product-button">Add to cart</button></a>
-                    <a href="#"><button type="button" class="btn btn-outline-dark btn-lg btn-block">See more products</button></a>
+                    <a href="{{ path('categories_read', {id: product.category.id}) }}"><button type="button" class="btn btn-outline-dark btn-lg btn-block">See more products</button></a>
                     <a href='{{ path('home')}}' class="home-link"><button type="button" class="btn btn-link disabled home-link__title"><-Home</button></a>
                 </div>
                 </div>
             </div>
         </div>
-
   </main>
 
 {% endblock %}

@@ -49,27 +49,7 @@ class ProductRepository extends ServiceEntityRepository
     */
 
     /**
-     * Find products by category_Id
-     * 
-     */
-    public function findProductsByCategoryId($id)
-    {
-
-        $entityManager = $this->getEntityManager();
-
-        $query = $entityManager->createQuery(
-            'SELECT p, c
-            FROM App\Entity\Products p
-            INNER JOIN p.categories c
-            WHERE c.id = :id '
-        )
-            ->setParameter('id', $id);
-
-        return $query->getResult();
-    }
-
-    /**
-     * Find Product by status
+     * Find all requests ordered by date DESC 
      * 
      */
     public function findProductByStatus($status)
@@ -80,7 +60,7 @@ class ProductRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             'SELECT p
             FROM App\Entity\Product p
-            WHERE p.status = :status '
+            WHERE p.status = :status'
         )
             ->setParameter('status', $status);
 

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,29 +23,24 @@ class Product
     private $name;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $description;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=50)
      */
     private $image;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true,  options={"comment":"Product status(1=available, 2=unavailable, 3=new)"}))
+     * @ORM\Column(type="smallint", nullable=true, options={"comment":"1=available, 2=unavailable, 3=new"})
      */
     private $status;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      */
-    private $categories;
-
-    public function __construct()
-    {
-        $this->categories = new ArrayCollection();
-    }
+    private $category;
 
     public function getId(): ?int
     {
@@ -71,7 +64,7 @@ class Product
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -83,45 +76,33 @@ class Product
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage(string $image): self
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?int
     {
         return $this->status;
     }
 
-    public function setStatus(?string $status): self
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
+    public function getCategory(): ?Category
     {
-        return $this->categories;
+        return $this->category;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategory(?Category $category): self
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        $this->categories->removeElement($category);
+        $this->category = $category;
 
         return $this;
     }
