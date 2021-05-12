@@ -1,5 +1,9 @@
 <div class="page">
-  <header tabindex="0">Header</header>
+  <header tabindex="0" class="header-logo">
+    <a href="{{ path('home')}}"><img src="{{ asset('css/images/helmet-logo-dark.png') }}" width= "60px"></a>
+     
+    {{ include('_search_bar.html.twig') }}
+  </header>
   <div id="nav-container">
     <div class="bg"></div>
     <div class="button" tabindex="0">
@@ -9,12 +13,11 @@
     </div>
     <div id="nav-content" tabindex="0">
       <ul>
-        <li><a href="#0">Home</a></li>
-        <li><a href="#0">Services</a></li>
-        <li><a href="#0">Blog</a></li>
-        <li><a href="#0">About</a></li>
-        <li><a href="#0">Contact</a></li>
-        <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
+        <li><a href="{{ path('home')}}"><img src="{{ asset('css/images/db-nav-logo.png') }}" width= "250px"></a></li>
+        {% for category in categories %} 
+        <li><a href="{{ path('categories_read', {id: category.id}) }}">{{ category.name }}</a></li>
+         {% endfor %} 
+        <li class="small"><a href="#0">About</a><a href="#0">Contact</a></li>
       </ul>
     </div>
   </div>
