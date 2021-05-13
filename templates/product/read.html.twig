@@ -4,13 +4,13 @@
 
 {% block body %}
 
-{% include '_sidenav.html.twig' %}
+{% include '_nav.html.twig' %}
 
-    <main class="container main-content">
-        <div class="card mb-3 product-details" style="max-width: 2000px;">
-            <div class="row g-0">
+    <main class="container">
+        <div class="card product-details" style="max-width: 2000px;">
+            <div class="row no-gutters g-0">
                 <div class="col-md-4">
-                <img src="{{ asset('images/' ~ product.image) }}" class="product-image" alt="product-image" width=100%>
+                <img src="{{ asset('images/' ~ product.image) }}" class="product-image" alt="product-image">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
@@ -19,7 +19,6 @@
                     <p class="card-text"><small class="text-muted">PRICE</small></p>
                     <a href="#"><button type="button" class="btn btn-info btn-lg btn-block product-button">Add to cart</button></a>
                     <a href="{{ path('categories_read', {id: product.category.id}) }}"><button type="button" class="btn btn-outline-dark btn-lg btn-block">See more products</button></a>
-                    <a href='{{ path('home')}}' class="home-link"><button type="button" class="btn btn-link disabled home-link__title"><-Home</button></a>
                 </div>
                 </div>
             </div>

@@ -1,0 +1,70 @@
+<!-- Side nav -->
+<div class="page" role="nav">
+  <header tabindex="0">
+    <a href="{{ path('home')}}"><img src="{{ asset('css/images/helmet-logo-dark.png') }}" width= "60px"></a>
+  </header>
+  <div id="nav-container">
+    <div class="bg"></div>
+    <div class="button" tabindex="0">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div id="nav-content" tabindex="0">
+      <ul>
+        <li><a href="{{ path('home')}}"><img src="{{ asset('css/images/db-nav-logo.png') }}" width= "250px"></a></li>
+        {% for category in categories %} 
+        <li><a href="{{ path('categories_read', {id: category.id}) }}">{{ category.name }}</a></li>
+         {% endfor %} 
+        <li class="small"><a href="#0">About</a><a href="#0">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Subnav -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top subnav">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('home')}}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign-in</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+<!--<ul class="nav justify-content-end fixed-top subnav">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sign-in</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Cart</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="#">About Us</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="#">Contact</a>
+  </li>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</ul>-->
