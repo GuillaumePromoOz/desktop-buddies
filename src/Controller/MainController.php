@@ -19,10 +19,9 @@ class MainController extends AbstractController
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 
-        // Le paramètre GET à récupérer
+        // GET parameter to be fetched by search bar
         $search = $request->query->get('search');
-        // Tous les films par ordre alphabétique
-        // $movies = $movieRepository->findBy([], ['title' => 'ASC']);
+        // All products by alphabetical order for search bar
         $products = $productRepository->findAllOrderedByNameAsc($search);
 
         // Finds a product by its status for home page (3=new)

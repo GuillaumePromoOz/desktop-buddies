@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+{% include '_nav.html.twig' %}
+
+    <main class="container cart-content">
+        <div class="row">
+            <div class="col">
+
+                <h2 class="cart-header">Your cart</h2>
+
+                {% if cart is empty %}
+                    <p>Your cart is empty.</p>
+                {% else %}
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for id, quantity in cart %}
+                        <tr class="table-active">
+
+                            <th scope="row">{{ products[id - 1].name}}</th>
+                            
+                            <td>-</td>
+                            <td>{{ quantity }}</td>
+                            <td>-</td>
+
+                        </tr>
+                         {% endfor %}
+                    </tbody>
+
+                </table>
+                {% endif %}
+
+                 <hr>
+
+                <form action="{{ path('cart_remove') }}" method="post" onsubmit="return confirm('Really clear cart ?')">
+                    <button type="submit" class="btn btn-primary">Clear cart</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -17,13 +17,18 @@ class ProductController extends AbstractController
      * 
      * @Route("/products/{id<\d+>}", name="products_read", methods="GET")
      */
-    public function read(Product $product, CategoryRepository $categoryRepository): Response
+    public function read(Product $product, $id, ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 
+        // Find product by id for cart (button "add to cart")
+        $product = $productRepository->find($id);
+
         return $this->render('product/read.html.twig', [
             'product' => $product,
+            'id' => $id,
+            // for navbar only
             'categories' => $categories,
         ]);
     }
