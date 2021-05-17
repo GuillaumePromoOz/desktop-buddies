@@ -49,7 +49,12 @@ class ProductRepository extends ServiceEntityRepository
     */
 
     /**
-     * Find all requests ordered by date DESC 
+     * 
+     * Find all products by status number
+     * 
+     * 1 = available 
+     * 2 = unavailable 
+     * 3 = new
      * 
      */
     public function findProductByStatus($status)
@@ -65,5 +70,26 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('status', $status);
 
         return $query->getResult();
+    }
+
+
+    /**
+     * 
+     * Find all products ordered by name ASC 
+     * 
+     */
+
+    public function findAllOrderedByNameAsc($search = null)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.name', 'ASC');
+
+        // Si mot-clé présent, on ajoute la condition WHERE
+        if (null !== $search) {
+            $qb->where('p.name LIKE :search')
+                ->setParameter('search', '%' . $search . '%');
+        }
+
+        return $qb->getQuery()->getResult();
     }
 }

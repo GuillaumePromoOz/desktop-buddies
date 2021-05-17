@@ -7,6 +7,35 @@
 {% include '_nav.html.twig' %}
 
 <main>
+
+<!-- Search Result -->
+  
+  {% if app.request.query.get('search') is not null %}
+  <h3>Search results for <i>"{{ app.request.query.get('search') }}"</i></h3>
+
+  <div class="container search-container">
+    <div class="row">
+      
+      <!-- Search Result Product Card -->
+      {% for product in products %} 
+      <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="card-group home-product-card">
+          <div class="card">
+            <a href="{{ path('products_read', {id: product.id}) }}">
+            <img class ="home-product-image" src="{{ asset('images/' ~ product.image) }}"/>
+            <div class="card-body">
+            <h5><span class="badge badge-primary">NEW</span></h5>
+            <h5 class="card-title home-product-card__title">{{ product.name }}</h5>
+            <a/>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% else %}
   <!-- carousel -->
   <div class="container carousel">
     <div class="row">
@@ -54,7 +83,9 @@
       </div>
     </div>
   </div>  
+  
 
+  
   <div class="container home-product-container">
     <div class="row">
       <!-- Lastest Arrivals Product Card -->
@@ -76,6 +107,7 @@
       {% endfor %}
     </div>
   </div>
+  {% endif %}
 
 </main>
 {% endblock %}

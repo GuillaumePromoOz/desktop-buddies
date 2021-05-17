@@ -19,6 +19,11 @@ a:link {
   text-decoration: none;
 }
 
+h3 {
+  margin-top: 8rem;
+  text-align: center;
+}
+
 /*** NAVBAR ***/
 
 .subnav {
@@ -64,6 +69,10 @@ a:link {
 
 .sales-card {
   text-align: center;
+}
+
+.search-container {
+  margin-top: 5rem;
 }
 
 /*** CATEGORY READ ***/
