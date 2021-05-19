@@ -56,6 +56,9 @@
           <div class="carousel-item">
             <img src="{{ asset('css/images/slide3.png') }}" class="d-block w-100 carousel-image" alt="...">
           </div>
+          <div class="carousel-item">
+            <img src="{{ asset('css/images/slide4.png') }}" class="d-block w-100 carousel-image" alt="...">
+          </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,19 +77,14 @@
   <div class="container sales-container">
     <div class="row">
       <div class="col">  
-        <div class="card">
-          <div class="card-body sales-card">
-            <h4 class="card-title">Check out our latest arrivals!</h4>
-            <h6 class="card-subtitle mb-2 text-primary">ORDER NOW and get 50% off any product</h6>
-          </div>
-        </div>
+        <img class ="home-product-image" src="{{ asset('css/images/freshbuddies.png') }}"/>
       </div>
     </div>
   </div>  
   
 
   
-  <div class="container home-product-container">
+  <div class="container">
     <div class="row">
       <!-- Lastest Arrivals Product Card -->
       {% for newProduct in newProducts %} 
