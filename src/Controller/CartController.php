@@ -54,9 +54,7 @@ class CartController extends AbstractController
         // It's the same cart to which we've add MORE data and reinjected BACK into the session
         $session->set('cart', $cart);
 
-        //dd($session->all());
-
-        $this->addFlash('success', 'Product has been added to cart');
+        $this->addFlash('success', 'Product added to cart');
 
         return $this->redirectToRoute('cart_list');
     }
@@ -66,8 +64,6 @@ class CartController extends AbstractController
      */
     public function list(SessionInterface $session, ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
-        //dd($session->get('cart', []));
-
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 

@@ -12,6 +12,8 @@
 
                 <h2 class="cart-header">Your cart</h2>
 
+                {{ include('_flash_messages.html.twig')}}
+
                 {% if cart is empty %}
                     <p>Your heart is empty.</p>
                 {% else %}
