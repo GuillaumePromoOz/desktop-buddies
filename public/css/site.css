@@ -27,7 +27,8 @@ h3 {
 /*** NAVBAR ***/
 
 .subnav {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
+  font-weight: bold;
   border: none;
   padding-bottom: 0.2rem;
   padding-top: 0.2rem;
