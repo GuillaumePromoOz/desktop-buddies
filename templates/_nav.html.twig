@@ -45,27 +45,8 @@
     <form class="form-inline my-2 my-lg-0" action="{{ path('home') }}">
       <input class="form-control mr-sm-2" type="search" name="search" placeholder="what are you looking for?" value="{{ app.request.query.get('search') ?? '' }}" aria-label="Search">
       <button class="btn btn-outline-success my-2 mr-1 my-sm-0" type="submit">Search</button>
-      <a href="{{ path('home') }}" class="btn btn-outline-danger my-2 my-sm-0">x</a>
+      <a href="{{ path('home') }}" class="btn btn-outline-dark my-2 my-sm-0">x</a>
     </form>
   </div>
 </nav>
 
-
-<!--<ul class="nav justify-content-end fixed-top subnav">
-  <li class="nav-item">
-    <a class="nav-link" href="#">Sign-in</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Cart</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link" href="#">About Us</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link" href="#">Contact</a>
-  </li>
-  <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</ul>-->

@@ -40,6 +40,7 @@ h3 {
 .home-product-card {
   margin-top: 3rem;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 .home-product-card__title {
@@ -82,6 +83,18 @@ h3 {
   text-align: center;
 }
 
+.category-product-card {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.category-product-image {
+  width: 100%;
+  height: 325px;
+  object-fit: cover;
+}
+
 /*** PRODUCT READ ***/
 
 .product-details {
@@ -120,13 +133,3 @@ h3 {
   font-weight: 1000;
   color: #212529;
 }
-
-/*.home-link {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-.home-link__title {
-  font-size: 16px;
-}*/

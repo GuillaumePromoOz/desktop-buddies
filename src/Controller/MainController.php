@@ -25,12 +25,12 @@ class MainController extends AbstractController
         $products = $productRepository->findAllOrderedByNameAsc($search);
 
         // Finds a product by its status for home page (3=new)
-        $newProducts = $productRepository->findProductByStatus(3);
+        $status = $productRepository->findProductByStatus(3);
 
         return $this->render('main/index.html.twig', [
             'categories' => $categories,
             'products' => $products,
-            'newProducts' => $newProducts,
+            'newProducts' => $status,
         ]);
     }
 }
