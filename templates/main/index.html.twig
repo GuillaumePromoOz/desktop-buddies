@@ -10,7 +10,7 @@
 
 <main>
 
-<!-- Search Result -->
+<!-- Search Results Display -->
   
   {% if app.request.query.get('search') is not null %}
   <h3>Search results for <i>"{{ app.request.query.get('search') }}"</i></h3>
@@ -37,7 +37,24 @@
   </div>
 
   {% else %}
-  <!-- carousel -->
+  <!-- Banners -->
+  <div class="container batman-banner">
+    <div class="row">
+      <div class="col">  
+        <img class ="betty-image" src="{{ asset('css/images/batman-banner.png') }}"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container discover-banner">
+    <div class="row">
+      <div class="col">  
+        <img class ="discover-banner-image" src="{{ asset('css/images/discover2.png') }}"/>
+      </div>
+    </div>
+  </div>
+
+   <!-- carousel -->
   <div class="container carousel">
     <div class="row">
       <div class="col">
@@ -75,16 +92,16 @@
     </div>
   </div>
 
-  <!-- Sales banner -->
+
+  <!-- New Arrivals Heading-->
+
   <div class="container sales-container">
     <div class="row">
       <div class="col">  
-        <img class ="home-product-image" src="{{ asset('css/images/freshbuddies.png') }}"/>
+        <img class ="home-product-image" src="{{ asset('css/images/allnew.png') }}"/>
       </div>
     </div>
-  </div>  
-  
-
+  </div>
   
   <div class="container">
     <div class="row">

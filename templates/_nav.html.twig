@@ -2,7 +2,7 @@
 <!-- /!\ nav not in base as it needs categories from home controller that renders into index.twig.html -->
 <div class="page" role="nav">
   <header tabindex="0">
-    <a href="{{ path('home')}}"><img src="{{ asset('css/images/helmet-logo-dark.png') }}" width= "60px"></a>
+    <a href="{{ path('home')}}"><img src="{{ asset('css/images/header-logo.png') }}" width= "65px"></a>
   </header>
   <div id="nav-container">
     <div class="bg"></div>
@@ -13,7 +13,7 @@
     </div>
     <div id="nav-content" tabindex="0">
       <ul>
-        <li><a href="{{ path('home')}}"><img src="{{ asset('css/images/db-nav-logo.png') }}" width= "250px"></a></li>
+        <li><a href="{{ path('home')}}"><img src="{{ asset('css/images/side-nav-logo.png') }}" width= "250px"></a></li>
         {% for category in categories %} 
         <li><a href="{{ path('categories_read', {id: category.id}) }}">{{ category.name }}</a></li>
          {% endfor %} 
