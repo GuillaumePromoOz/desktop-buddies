@@ -25,7 +25,8 @@ class MainController extends AbstractController
         // All products by alphabetical order for search bar
         $products = $productRepository->findAllOrderedByNameAsc($search);
 
-        // Finds a product by its status for home page (3=new)
+        // Finds a product by its status for home page
+        // 3=new, 4=best-seller
         $statusNew = $productRepository->findProductByStatus(3);
         $statusTop = $productRepository->findProductByStatus(4);
 
