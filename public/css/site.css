@@ -160,3 +160,9 @@ h3 {
   font-weight: 1000;
   color: #212529;
 }
+
+/*** USER ***/
+
+.login-form {
+  margin-top: 5rem;
+}
