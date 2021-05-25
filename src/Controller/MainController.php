@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,12 +26,14 @@ class MainController extends AbstractController
         $products = $productRepository->findAllOrderedByNameAsc($search);
 
         // Finds a product by its status for home page (3=new)
-        $status = $productRepository->findProductByStatus(3);
+        $statusNew = $productRepository->findProductByStatus(3);
+        $statusTop = $productRepository->findProductByStatus(4);
 
         return $this->render('main/index.html.twig', [
             'categories' => $categories,
             'products' => $products,
-            'newProducts' => $status,
+            'newProducts' => $statusNew,
+            'topProducts' => $statusTop,
         ]);
     }
 }

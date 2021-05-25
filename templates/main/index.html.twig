@@ -46,13 +46,45 @@
     </div>
   </div>
 
-  <div class="container discover-banner">
+  <div class="container home-headings">
+    <div class="row">
+      <div class="col">  
+       <h4>Top Products</h4>
+      </div>
+    </div>
+  </div>
+
+   <div class="container">
+    <div class="row">
+      <!-- Lastest Arrivals Product Card -->
+      {% for topProduct in topProducts %} 
+      <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="card-group home-product-card">
+          <div class="card">
+            <a href="{{ path('products_read', {id: topProduct.id}) }}">
+            <img class ="home-product-image" src="{{ asset('images/' ~ topProduct.image) }}"/>
+            <div class="card-body">
+            <h5><span class="badge badge-warning mb-2">BEST SELLER</span></h5>
+            <h5 class="card-title home-product-card__title">{{ topProduct.name }}</h5>
+            <a/>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+ <!-- <div class="container discover-banner">
     <div class="row">
       <div class="col">  
         <img class ="discover-banner-image" src="{{ asset('css/images/discover2.png') }}"/>
       </div>
     </div>
-  </div>
+  </div>-->
 
    <!-- carousel -->
   <div class="container carousel">
@@ -95,10 +127,18 @@
 
   <!-- New Arrivals Heading-->
 
-  <div class="container sales-container">
+  <!--<div class="container sales-container">
     <div class="row">
       <div class="col">  
         <img class ="home-product-image" src="{{ asset('css/images/allnew.png') }}"/>
+      </div>
+    </div>
+  </div>-->
+
+   <div class="container home-headings">
+    <div class="row">
+      <div class="col">  
+       <h4>New Arrivals</h4>
       </div>
     </div>
   </div>

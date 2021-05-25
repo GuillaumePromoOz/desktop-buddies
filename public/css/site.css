@@ -61,6 +61,11 @@ h3 {
   object-fit: cover;
 }
 
+.home-headings {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .home-product-card {
   margin-bottom: 4rem;
   text-align: center;
