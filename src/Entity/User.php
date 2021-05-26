@@ -75,6 +75,8 @@ class User implements UserInterface
      */
     private $updatedAt;
 
+    // Field that won't be included in my form
+    // and that isn't nullable
     public function __construct()
     {
         $this->createdAt = new \DateTime();

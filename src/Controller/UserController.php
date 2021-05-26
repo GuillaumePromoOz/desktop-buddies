@@ -40,6 +40,9 @@ class UserController extends AbstractController
             // On réassigne le mot passe encodé dans le User
             $user->setPassword($hashedPassword);
 
+            $role = $user->getRoles();
+            $user->setRoles($role);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
