@@ -1,15 +1,25 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Ajouter un utilisateur
+    Register
 {% endblock %}
 
 {% block admin %}active{% endblock %}
 
 {% block body %}
 
-<h1>Ajouter un utilisateur</h1>
+<main class="container jumbotron register-form">
+
+<h1>Welcome, Padawan!</h1>
 
 {{ include('user/_form.html.twig') }}
+
+</main>
+
+<a href="{{ path('app_login') }}" class="container register-form__back-button">
+<button type="button" class="btn btn-link text-dark"><-Back</button>
+</a>
+
+
 
 {% endblock %}

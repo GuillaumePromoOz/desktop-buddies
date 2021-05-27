@@ -164,5 +164,23 @@ h3 {
 /*** USER ***/
 
 .login-form {
+  margin-top: 10rem;
+}
+
+.register-form {
   margin-top: 5rem;
+  width: 30%;
+}
+
+.register-form h1 {
+  margin-bottom: 1rem;
+}
+
+.register-form__back-button {
+  display: flex;
+  justify-content: center;
+}
+
+.register-form__back-button button {
+  font-size: 16px;
 }
