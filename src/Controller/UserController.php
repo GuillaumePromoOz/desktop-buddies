@@ -8,9 +8,9 @@ use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
 
 class UserController extends AbstractController
 {
@@ -98,14 +98,25 @@ class UserController extends AbstractController
     /**
      * @Route("/delete/{id}", name="user_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, User $user): Response
+    public function delete(Request $request, User $user, $id): Response
     {
+
+        //!\ We need to clear current User's session BEFORE removing User and redirecting
+        $currentUserId = $this->getUser()->getId();
+
+        if ($currentUserId == $id) {
+            $session = $this->get('session');
+            $session = new Session();
+            $session->invalidate();
+        }
+
+        // User Removal
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('app_logout');
     }
 }

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+
+<main class="container jumbotron register-form">
+    <h1>Edit Your Profile </h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('user/_delete_form.html.twig') }}
+</main>
+
+<a href="{{ path('home') }}" class="container register-form__back-button">
+<button type="button" class="btn btn-link text-dark"><-Return to homepage</button>
+</a>
+
+{% endblock %}

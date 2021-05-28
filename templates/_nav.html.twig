@@ -46,7 +46,7 @@
         <a type="button" class="btn btn-outline-primary btn-small mt-2 ml-2" href="{{ path('app_logout') }}">Log Out</a>
     </li>
     <li class="nav-item">
-       <a class="nav-link user-tag" href="{{ path('home')}}">Welcome, <b>{{ app.user.firstname }}!</b></a>
+       <a class="nav-link user-tag" href="{{ path('user_edit', {'id': app.user.id})}}">Welcome, <b>{{ app.user.firstname }}!</b></a>
     </li>
     {% else %}
     <li class="nav-item">
