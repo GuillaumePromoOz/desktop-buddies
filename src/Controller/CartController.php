@@ -38,7 +38,6 @@ class CartController extends AbstractController
         //... the array's value will equal the quantiy of products for this ID
 
         $productId = $product->getId();
-        //dd($productId);
 
         if (!array_key_exists($productId, $cart)) {
             // New Product ?
@@ -54,7 +53,7 @@ class CartController extends AbstractController
         // It's the same cart to which we've add MORE data and reinjected BACK into the session
         $session->set('cart', $cart);
 
-        $this->addFlash('success', 'Product added to cart');
+        $this->addFlash('success', 'Product has been added to cart');
 
         return $this->redirectToRoute('cart_list');
     }
@@ -68,10 +67,8 @@ class CartController extends AbstractController
         $categories = $categoryRepository->findAll();
 
         $cart = $session->get('cart', []);
-        //sdd($cart);
 
         $products = $productRepository->findAll();
-        //dd($products);
 
         return $this->render('cart/list.html.twig', [
             'cart' => $cart,

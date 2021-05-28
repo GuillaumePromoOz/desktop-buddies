@@ -46,7 +46,7 @@
                 </table>
                 {% endif %}
 
-                <form action="{{ path('cart_remove') }}" method="post" onsubmit="return confirm('Really clear cart ?')">
+                <form action="{{ path('cart_remove') }}" method="post" onsubmit="return confirm('Are you sure you want to clear cart ?')">
                     <button type="submit" class="btn btn-primary">Clear cart</button>
                 </form>
 
