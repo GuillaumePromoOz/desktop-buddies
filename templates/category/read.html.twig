@@ -24,11 +24,11 @@
                 {% if status is defined and product.status == 3 %}
                 <h5><span class="badge badge-primary mb-2">NEW</span></h5>
                 <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text"><small class="text-muted">9.99$</small></p>
+                <p class="card-text category-product-price">{{ product.price|format_currency('EUR', locale='fr') }}</p>
                 <button type="button" class="btn btn-outline-primary btn-small mb-3">Details</button>
                 {% else %}
                 <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text"><small class="text-muted">9.99$</small></p>
+                <p class="card-text category-product-price">{{ product.price|format_currency('EUR', locale='fr') }}</p>
                 <button type="button" class="btn btn-outline-dark btn-small mb-3">Details</button>
                 {% endif %}
             <a/>

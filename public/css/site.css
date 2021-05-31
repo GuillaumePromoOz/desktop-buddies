@@ -111,6 +111,12 @@ h3 {
   object-fit: cover;
 }
 
+.category-product-price,
+.home-product {
+  font-size: 17px;
+  font-weight: bold;
+}
+
 /*** PRODUCT READ ***/
 
 .product-details {
@@ -131,6 +137,11 @@ h3 {
 
 .product-text {
   font-size: 16px;
+}
+
+.product-price {
+  font-size: 20px;
+  color: red;
 }
 
 .product-button {

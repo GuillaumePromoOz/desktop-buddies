@@ -35,10 +35,10 @@
 
                             <th scope="row">{{ products[id - 1].name}}</th>
                             
-                            <td>-</td>
+                            <td>{{ products[id - 1].price }}&euro;</td>
                             <td>{{ quantity }}</td>
-                            <td>-</td>
-
+                            <td>{{ products[id - 1].price * quantity }}&euro;</td>
+            
                         </tr>
                          {% endfor %}
                     </tbody>

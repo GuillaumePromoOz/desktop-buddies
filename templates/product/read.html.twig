@@ -16,7 +16,8 @@
                 <div class="card-body">
                     <h5 class="card-title product-title">{{product.name}}</h5>
                     <p class="card-text product-text">{{product.description}}</p>
-                    <p class="card-text"><small class="text-muted">PRICE</small></p>
+                    <p class="card-text product-price">Price:	{{ product.price|format_currency('EUR', locale='fr') }}</p>
+                    <p class="card-text text-muted">+ cost of shipping & import fees</p>
                     
                     <!-- action sets the page where we fetch POST-->
                     <form action="{{ path('cart_add') }}" method="POST">

@@ -37,5 +37,5 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/(edit|delete), methods: [GET, POST, PATCH, DELETE], roles: ROLE_USER }
-        - { path: ^/cart, methods: [GET], roles: ROLE_USER }
+        #- { path: ^/cart, methods: [GET], roles: ROLE_USER }
         

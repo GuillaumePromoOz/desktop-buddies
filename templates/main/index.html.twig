@@ -68,7 +68,7 @@
             <h5><span class="badge badge-warning mb-2">BEST SELLER</span></h5>
             <h5 class="card-title home-product-card__title">{{ topProduct.name }}</h5>
             <a/>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text home-product">{{ topProduct.price|format_currency('EUR', locale='fr') }}</p>
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@
             <h5><span class="badge badge-primary mb-2">NEW</span></h5>
             <h5 class="card-title home-product-card__title">{{ newProduct.name }}</h5>
             <a/>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text home-product">{{ newProduct.price|format_currency('EUR', locale='fr') }}</p>
             </div>
           </div>
         </div>
