@@ -40,13 +40,13 @@
         <a class="nav-link" href="{{ path('cart_list')}}">Cart</a>
     </li>
 
-    {# Est-on connecté ? #}
+    {# Is a User connected ? #}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <li class="nav-item">
         <a type="button" class="btn btn-outline-primary btn-small mt-2 ml-2" href="{{ path('app_logout') }}">Log Out</a>
     </li>
     <li class="nav-item">
-       <a class="nav-link user-tag" href="{{ path('user_edit', {'id': app.user.id})}}">Welcome, <b>{{ app.user.firstname }}!</b></a>
+       <a class="nav-link user-tag" href="{{ path('user_edit', {'id': app.user.id})}}" data-toggle="tooltip" data-placement="top" title="Edit your profile!">Welcome, <b>{{ app.user.firstname }}!</b></a>
     </li>
     {% else %}
     <li class="nav-item">
@@ -56,7 +56,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{{ path('home') }}">
     <input class="form-control mr-sm-2" type="search" name="search" placeholder="what are you looking for?" value="{{ app.request.query.get('search') ?? '' }}" aria-label="Search">
-    <button class="btn btn-outline-success my-2 mr-1 my-sm-0" type="submit">SEARCH</button>
+    <button class="btn btn-outline-success my-2 mr-1 my-sm-0" type="submit">Search</button>
     <a href="{{ path('home') }}" class="btn btn-outline-dark my-2 my-sm-0">x</a>
     </form>
 </div>

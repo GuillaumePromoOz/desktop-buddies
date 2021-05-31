@@ -96,7 +96,11 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="user_delete", methods={"GET", "DELETE"})
+     * 
+     * The GET method is specified here ONLY because if an anonymous User
+     * tries to access this route via the URL, they will be redirected to
+     * the login page (as with edit method)
      */
     public function delete(Request $request, User $user, $id): Response
     {

@@ -57,9 +57,15 @@ class UserType extends AbstractType
                         'empty_data' => '',
                         'help' => 'Must be at least 8 characters long, including uppercase, lowercase letters and numbers',
                         'attr' => [
-                            'placeholder' => 'Laissez vide si inchangé',
+                            'placeholder' => 'Leave field empty if unchanged',
                         ],
                         'mapped' => false,
+                        'constraints' => [
+                            new Length([
+                                'min' => 4,
+                            ]),
+                            new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])$/')
+                        ]
                     ]);
                 }
             });

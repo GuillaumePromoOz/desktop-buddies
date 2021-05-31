@@ -35,7 +35,7 @@ h3 {
 /*** NAVBAR ***/
 
 .subnav {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   border: none;
   padding-bottom: 0.2rem;
   padding-top: 0.2rem;
@@ -50,16 +50,6 @@ h3 {
   display: flex;
   justify-content: center;
 }
-
-/*.discover-banner {
-  margin-top: 1rem;
-}*/
-
-/*.discover-banner-image {
-  width: 100%;
-  height: 325px;
-  object-fit: cover;
-}*/
 
 .home-headings {
   margin-top: 3rem;
@@ -193,7 +183,7 @@ h3 {
 }
 
 .user-tag {
-  text-transform: lowercase;
+  /*text-transform: lowercase;*/
   margin-left: 1rem;
   font-style: italic;
 }
