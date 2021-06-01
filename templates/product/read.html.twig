@@ -21,12 +21,14 @@
                     
                     <!-- action sets the page where we fetch POST-->
                     <form action="{{ path('cart_add') }}" method="POST">
-                     <!-- we fetch the ID that we passed to the render in the read method-->
+                     <!-- we fetch the ID that we passed to the render in the read method from ProductController-->
                         <input type="hidden" name="id" value="{{ id }}">
-                        <button type="submit" class="btn btn-info btn-lg btn-block product-button">Add to cart</button>
+                        <!--<button type="submit" class="btn btn-info btn-lg btn-block product-button">Add to cart</button>-->
+                        <button type="submit" class="btn btn-primary btn-lg mt-3">Add to cart</button>
                     </form>
                   
-                    <a href="{{ path('categories_read', {id: product.category.id}) }}"><button type="button" class="btn btn-outline-dark btn-lg btn-block">See more products</button></a>
+                    <a href="{{ path('categories_read', {id: product.category.id}) }}"><button type="button" class="btn btn-dark btn-lg mt-2">More products</button>
+</a>
                 </div>
                 </div>
             </div>

@@ -60,12 +60,6 @@ class UserType extends AbstractType
                             'placeholder' => 'Leave field empty if unchanged',
                         ],
                         'mapped' => false,
-                        'constraints' => [
-                            new Length([
-                                'min' => 4,
-                            ]),
-                            new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])$/')
-                        ]
                     ]);
                 }
             });
