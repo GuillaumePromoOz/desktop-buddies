@@ -19,6 +19,11 @@ class CategoryController extends AbstractController
      */
     public function read(Category $category = null, Product $product, CategoryRepository $categoryRepository, ProductRepository $productRepository): Response
     {
+        // 404 
+        if ($category === null) {
+            throw $this->createNotFoundException('Page not found');
+        }
+
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 

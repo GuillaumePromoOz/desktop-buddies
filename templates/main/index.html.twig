@@ -24,7 +24,7 @@
         <div class="card-group home-product-card">
           <div class="card">
             <a href="{{ path('products_read', {id: product.id}) }}">
-            <img class ="home-product-image" src="{{ asset('images/' ~ product.image) }}"/>
+            <img class ="home-product-image" src="{{ asset('images/' ~ product.image) }}" alt="product-image"/>
             <div class="card-body">
             <h5 class="card-title home-product-card__title">{{ product.name }}</h5>
             <a/>
@@ -41,13 +41,13 @@
   <div class="container batman-banner">
     <div class="row">
       <div class="col">  
-        <img class ="betty-image" src="{{ asset('css/images/batman-banner.png') }}"/>
+        <img src="{{ asset('css/images/batman-banner.png') }}" alt="banner-image"/>
       </div>
     </div>
   </div>
 
 <!-- Top products heading -->
-  <div class="container home-headings">
+  <div class="container top-products">
     <div class="row">
       <div class="col">  
        <h4>Top Products</h4>
@@ -63,7 +63,7 @@
         <div class="card-group home-product-card">
           <div class="card">
             <a href="{{ path('products_read', {id: topProduct.id}) }}">
-            <img class ="home-product-image" src="{{ asset('images/' ~ topProduct.image) }}"/>
+            <img class ="home-product-image" src="{{ asset('images/' ~ topProduct.image) }}" alt="product-image"/>
             <div class="card-body">
             <h5><span class="badge badge-warning mb-2">BEST SELLER</span></h5>
             <h5 class="card-title home-product-card__title">{{ topProduct.name }}</h5>
@@ -77,28 +77,24 @@
     </div>
   </div>
 
- <!-- <div class="container discover-banner">
-    <div class="row">
-      <div class="col">  
-        <img class ="discover-banner-image" src="{{ asset('css/images/discover2.png') }}"/>
-      </div>
-    </div>
-  </div>-->
-
    <!-- carousel -->
-   
   <div class="container carousel">
     <div class="row">
       <div class="col">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
+        <!-- We declare a variable isFirst and set it to true-->
+        <!-- this way we'll be able to add the active class to this first element-->
         {% set isFirst = true %}
         {% for category in categories %}
           {% if isFirst == true %}
+            <!-- For Indicators we use the loop.index0 to specify dynamically the image's index -->
             <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" class="active"></li>
             {% else %}
             <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}"></li>
             {% endif %}
+            <!-- At the end of this first iteration, we redefine isFirst to false -->
+            <!-- this way, the other elements of the loop WILL NOT inherit the active class-->
             {% set isFirst = false %}
         {% endfor %}
         </ol>
@@ -111,7 +107,7 @@
               <div class="carousel-item">
             {% endif %}
             <a href="{{ path('categories_read', {id: category.id}) }}">
-            <img src="{{ asset('css/images/' ~ category.image) }}" class="d-block w-100 carousel-image" alt="...">
+            <img src="{{ asset('css/images/' ~ category.image) }}" class="d-block w-100 carousel-image" alt="category-image">
             </a>
           </div>
             {% set isFirst = false %}
@@ -130,18 +126,8 @@
     </div>
   </div>
 
-  <!-- New Arrivals Heading-->
-
-  <!--<div class="container sales-container">
-    <div class="row">
-      <div class="col">  
-        <img class ="home-product-image" src="{{ asset('css/images/allnew.png') }}"/>
-      </div>
-    </div>
-  </div>-->
-
   <!-- New product heading -->
-   <div class="container home-headings">
+   <div class="container new-arrivals">
     <div class="row">
       <div class="col">  
        <h4>New Arrivals</h4>
@@ -157,7 +143,7 @@
         <div class="card-group home-product-card">
           <div class="card">
             <a href="{{ path('products_read', {id: newProduct.id}) }}">
-            <img class ="home-product-image" src="{{ asset('images/' ~ newProduct.image) }}"/>
+            <img class ="home-product-image" src="{{ asset('images/' ~ newProduct.image) }}" alt="product-image"/>
             <div class="card-body">
             <h5><span class="badge badge-primary mb-2">NEW</span></h5>
             <h5 class="card-title home-product-card__title">{{ newProduct.name }}</h5>

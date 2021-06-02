@@ -7,12 +7,11 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Validator\Constraints\Regex;
+
 
 class UserType extends AbstractType
 {
@@ -32,28 +31,26 @@ class UserType extends AbstractType
             ])
 
             ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-                // Le user mappé sur le form
+                // User is mapped to the form
                 $user = $event->getData();
-                // L'objet form à récupérer pour travailler avec
-                // (car il est inconnu dans cette fonction anonyme)
+                // We need the form object since we are
+                // in an anonymous fonction
                 $form = $event->getForm();
 
-                // L'entité $user existe-t-il en BDD ?
-                // Si $user a un identifiant, c'est qu'il existe en base
+                // Does the $user entiy exist in the database ?
+                // if $user has an id, that means it already exits
                 if ($user->getId() === null) {
-                    // Si non => add
+                    // if $user doesn't exist  => add
                     $form->add('password', PasswordType::class, [
-                        // Si donnée vide (null), remplacer par chaine vide
+                        // if data empty (null), remplacer by empty string
                         // @see https://symfony.com/doc/current/reference/forms/types/password.html#empty-data
                         'empty_data' => '',
                         'label' => 'Password *',
                         'help' => 'Must be at least 8 characters long, including uppercase, lowercase letters and numbers',
                     ]);
                 } else {
-                    // Si oui => edit
+                    // if $user already exists => edit
                     $form->add('password', PasswordType::class, [
-                        // Si donnée vide (null), remplacer par chaine vide
-                        // @see https://symfony.com/doc/current/reference/forms/types/password.html#empty-data
                         'empty_data' => '',
                         'help' => 'Must be at least 8 characters long, including uppercase, lowercase letters and numbers',
                         'attr' => [

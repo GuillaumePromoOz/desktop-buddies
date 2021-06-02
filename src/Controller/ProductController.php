@@ -17,8 +17,13 @@ class ProductController extends AbstractController
      * 
      * @Route("/products/{id<\d+>}", name="products_read", methods="GET")
      */
-    public function read(Product $product, $id, ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
+    public function read(Product $product = null, $id, ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
+        // 404
+        if ($product === null) {
+            throw $this->createNotFoundException('Page not found');
+        }
+
         // Finds all categories for navbar
         $categories = $categoryRepository->findAll();
 

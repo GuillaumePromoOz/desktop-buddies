@@ -55,6 +55,7 @@ class ProductRepository extends ServiceEntityRepository
      * 1 = available 
      * 2 = unavailable 
      * 3 = new
+     * 4 = best-seller
      * 
      */
     public function findProductByStatus($status)
@@ -84,7 +85,7 @@ class ProductRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('p')
             ->orderBy('p.name', 'ASC');
 
-        // Si mot-clé présent, on ajoute la condition WHERE
+        // if keyword (search) present, we add the WHERE condition
         if (null !== $search) {
             $qb->where('p.name LIKE :search')
                 ->setParameter('search', '%' . $search . '%');

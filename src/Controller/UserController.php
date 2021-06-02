@@ -28,6 +28,8 @@ class UserController extends AbstractController
     }
 
     /**
+     * Register form for new User
+     * 
      * @Route("/register", name="user_register", methods={"GET","POST"})
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
@@ -52,8 +54,6 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            //$this->addFlash('success', 'Vous êtes enregistré. Vous pouvez maintenant vous connecter.');
-
             return $this->redirectToRoute('app_login');
         }
 
@@ -63,29 +63,34 @@ class UserController extends AbstractController
     }
 
     /**
+     * Edit form for User
+     * 
      * @Route("/edit/{id}", name="user_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
     {
+        // Creates and returns a Form instance from the type of the form (UserType).
         $form = $this->createForm(UserType::class, $user);
-        // Le mot de passe du $user va être écrasé par $request
+        // The user's password will be overwritten by $request 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Si le mot de passe du form n'est pas vide
-            // c'est qu'on veut le changer !
+            // If the form's password field is not empty 
+            // that means we want to change it !
             if ($form->get('password')->getData() !== '') {
-                // C'est là qu'on encode le mot de passe du User (qui se trouve dans $user)
+
                 $hashedPassword = $passwordEncoder->encodePassword($user, $form->get('password')->getData());
-                // On réassigne le mot passe encodé dans le User
+                // We reassign the encoded password to the $user
                 $user->setPassword($hashedPassword);
             }
 
+            // Sets the new datetime in the database updated_at field
+            $user->setUpdatedAt(new \DateTime());
+
+            // Save
             $this->getDoctrine()->getManager()->flush();
 
-            // Flash
-            //$this->addFlash('success', 'Vous êtes enregistré. Vous pouvez maintenant vous connecter.');
             return $this->redirectToRoute('home');
         }
 
@@ -96,6 +101,8 @@ class UserController extends AbstractController
     }
 
     /**
+     * Remove User
+     * 
      * @Route("/delete/{id}", name="user_delete", methods={"GET", "DELETE"})
      * 
      * The GET method is specified here ONLY because if an anonymous User

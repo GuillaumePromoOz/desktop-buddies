@@ -14,6 +14,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CartController extends AbstractController
 {
     /**
+     * Add content to cart
+     * 
      * @Route("/cart/add", name="cart_add", methods={"POST"})
      */
     public function add(ProductRepository $productRepository, Product $product = null, Request $request, SessionInterface $session): Response
@@ -59,6 +61,8 @@ class CartController extends AbstractController
     }
 
     /**
+     * List cart content
+     * 
      * @Route("/cart", name="cart_list", methods={"GET"})
      */
     public function list(SessionInterface $session, ProductRepository $productRepository, CategoryRepository $categoryRepository)
@@ -84,7 +88,7 @@ class CartController extends AbstractController
      */
     public function remove(SessionInterface $session)
     {
-        // We remone the cart attribute/key in the session
+        // We remove the cart attribute/key in the session
         $session->remove('cart');
 
         $this->addFlash('success', 'Cart cleared.');

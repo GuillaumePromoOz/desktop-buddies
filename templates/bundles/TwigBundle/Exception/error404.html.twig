@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container error">
+    
+    <h1>{{ exception.statusCode }} {{ exception.statusText }}</h1>
+
+    <img src="{{asset('css/images/404.png')}}" alt="" width="1000px">   
+
+    </div>
+
+    <div class="container return-home">
+    <h4><a href="{{ path('home') }}"><-return to the homepage</a></h4>
+    </div>
+{% endblock %}
