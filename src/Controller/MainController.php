@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home", methods="GET")
      */
     public function home(CategoryRepository $categoryRepository, ProductRepository $productRepository, Request $request): Response
     {

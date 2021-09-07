@@ -16,7 +16,7 @@ class CartController extends AbstractController
     /**
      * Add content to cart
      * 
-     * @Route("/cart/add", name="cart_add", methods={"POST"})
+     * @Route("/cart/add", name="cart_add", methods="POST")
      */
     public function add(ProductRepository $productRepository, Product $product = null, Request $request, SessionInterface $session): Response
     {
@@ -63,7 +63,7 @@ class CartController extends AbstractController
     /**
      * List cart content
      * 
-     * @Route("/cart", name="cart_list", methods={"GET"})
+     * @Route("/cart", name="cart_list", methods="GET")
      */
     public function list(SessionInterface $session, ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
@@ -84,7 +84,7 @@ class CartController extends AbstractController
     /**
      * Remove cart content
      * 
-     * @Route("/cart/remove", name="cart_remove", methods={"POST"})
+     * @Route("/cart/remove", name="cart_remove", methods="POST")
      */
     public function remove(SessionInterface $session)
     {
