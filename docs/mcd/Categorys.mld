@@ -1,0 +1,6 @@
+%%mocodo
+:
+CATEGORY: name, image
+:
+PRODUCT: name, description, image, status, price, #name.1->CATEGORY->name
+:

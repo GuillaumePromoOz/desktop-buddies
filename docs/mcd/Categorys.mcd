@@ -1,0 +1,3 @@
+CATEGORY: name, image
+has, 11 PRODUCT, 0N CATEGORY
+PRODUCT: name, description, image, status, price

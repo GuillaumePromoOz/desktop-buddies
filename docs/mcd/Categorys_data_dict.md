@@ -1,0 +1,7 @@
+- name
+- image
+- name
+- description
+- image
+- status
+- price

@@ -1,0 +1,2 @@
+CATEGORY (_name_, image)
+PRODUCT (_name_, description, image, status, price, #name.1)
